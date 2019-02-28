@@ -1,20 +1,14 @@
-// Code your solution here:
-function driversWithRevenueOver(drivers, revenue){
-    return drivers.filter(function (driver) {
-        return driver.revenue > revenue;
+// Code your solution in this file.
+function lowerCaseDrivers(drivers){
+    return drivers.map(function (emp){return emp.toLowerCase()});
+}
+
+function nameToAttributes(drivers) {
+    return drivers.map(function (emp){const fullName = emp.split(' '); return {firstName: fullName[0], lastName: fullName[1]};})
+}
+
+function attributesToPhrase(drivers){
+    return drivers.map(function (emp){
+        return `${emp.name} is from ${emp.hometown}`;
     });
-}
-
-function driverNamesWithRevenueOver(drivers, revenue){
-    return driversWithRevenueOver(drivers,revenue).map(driver => driver.name);
-}
-
-function exactMatch(drivers, objectSpec){
-    return drivers.filter(function (driver) {
-        return driver[Object.keys(objectSpec)[0]] == Object.values(objectSpec)[0];
-    });
-}
-
-function exactMatchToList(drivers, objectSpec){
-    return exactMatch(drivers,objectSpec).map(driver => driver.name);
 }
